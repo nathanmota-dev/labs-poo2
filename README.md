@@ -1,87 +1,68 @@
-# Padrões de Projeto - Programação Orientada a Objetos
+# Padrões de Projeto - Programação Orientada a Objetos 2
 
-Este repositório foi criado para armazenar os ensinamentos e atividades práticas da disciplina de Programação Orientada a Objetos 2, com foco em padrões de projeto. Os padrões de projeto são soluções reutilizáveis para problemas comuns na construção de software orientado a objetos. Neste repositório, você encontrará tanto a parte prática (Laboratórios), quanto a parte teórica.
+Este repositório foi criado para armazenar os exercícios práticos desenvolvidos na disciplina de **Programação Orientada a Objetos 2** (POO2) com foco no estudo e implementação de **padrões de projeto**. Os padrões de projeto são soluções comprovadas e reutilizáveis para problemas recorrentes no desenvolvimento de software orientado a objetos, facilitando a manutenção, escalabilidade e flexibilidade dos sistemas.
 
-## 1. Factory Method
+Abaixo, estão descritos os laboratórios realizados durante a disciplina, com os padrões de projeto abordados em cada um deles.
 
-O **Factory Method** é um padrão de projeto de criação que lida com a criação de objetos. Ele permite que subclasses decidam quais classes instanciar, desacoplando o código cliente do processo de criação de objetos.
+---
 
-**Características do Factory Method**:
-- Oculta a lógica de criação de objetos do cliente.
-- O método fábrica é responsável por instanciar as classes desejadas, separando a criação do objeto da sua utilização.
-- Promove o princípio **OCP (Open/Closed Principle)**, permitindo a extensão de fábricas sem alterar o código cliente.
-- Flexibiliza o código, já que a criação de novos objetos pode ser controlada por subclasses.
+## Laboratório 2 - Singleton e Factory
 
-### Exemplo prático (em TypeScript)
+Neste laboratório, o foco foi a implementação de dois padrões de criação: **Singleton** e **Factory**. Esses padrões ajudam a controlar como os objetos são criados, permitindo maior flexibilidade e controle sobre o processo de instanciação.
 
-Apesar de os exercícios do repositório serem feitos em Java, o exemplo abaixo em TypeScript ajuda a ilustrar o conceito de forma clara:
+### Padrões de Projeto:
+- **Singleton**: Garante que uma classe tenha apenas uma instância e fornece um ponto global de acesso a essa instância.
+- **Factory**: Define uma interface para criar objetos, mas deixa as subclasses decidirem quais classes instanciar. 
 
-```typescript
-interface Product {
-    sayHi(): void;
-}
+### Exercícios:
+1. Implementação de fabricantes de celulares utilizando os padrões **Singleton** e **Factory**.
+2. Simulação de fábricas de veículos, com os fabricantes Toyota e Honda, aplicando os padrões **Singleton** e **Factory**.
 
-class ConcreteProduct implements Product {
-    sayHi(): void {
-        console.log('Hi');
-    }
-}
+---
 
-abstract class Creator {
-    abstract factoryMethod(): Product;
+## Laboratório 3 - Adapter (Wrapper)
 
-    createAndShow(): void {
-        const product = this.factoryMethod();
-        console.log(product);
-    }
-}
+Neste laboratório, o objetivo foi entender e implementar o padrão estrutural **Adapter**. Esse padrão é usado para permitir que interfaces incompatíveis trabalhem juntas, agindo como um "adaptador" entre classes.
 
-class ConcreteCreator extends Creator {
-    factoryMethod(): Product {
-        return new ConcreteProduct();
-    }
-}
+### Padrão de Projeto:
+- **Adapter (Wrapper)**: Converte a interface de uma classe em outra interface esperada pelos clientes, permitindo que classes com interfaces incompatíveis trabalhem juntas.
 
-const creator = new ConcreteCreator();
-const product = creator.factoryMethod();
-product.sayHi(); // Hi
-creator.createAndShow(); // ConcreteProduct {}
-```
+### Exercícios:
+1. Implementação de habilidades de aves (como Pato e Pavão), utilizando o padrão **Adapter** para permitir que diferentes tipos de aves compartilhem comportamentos.
+2. Implementação de uma calculadora que funciona tanto com números binários quanto decimais, usando o padrão **Adapter** para unificar as operações.
+3. **Proposta e implementação de um sistema de pagamento**: Neste exercício, foi criado um sistema de pagamento utilizando o padrão **Adapter**. As classes envolvidas foram: `AdaptadorPayPal.java`, `AdaptadorStripe.java`, `Main.java`, `Pagamento.java`, `Paypal.java`, `SistemaPagamento.java` e `Stripe.java`.
 
-Nesse exemplo, a classe Creator define o método factoryMethod(), que é implementado pela subclasse ConcreteCreator para retornar o produto concreto. Isso permite que o cliente (main()) possa criar e interagir com o produto sem se preocupar com a classe concreta que está sendo usada.
+---
 
-## 2. Singleton
-O Singleton é um padrão de projeto criacional que garante que uma classe tenha apenas uma única instância, fornecendo um ponto de acesso global a essa instância.
+## Laboratório 4 - Decorator
 
-**Características do Singleton**:
+Neste laboratório, o foco foi o padrão **Decorator**, que permite adicionar responsabilidades a objetos de forma dinâmica, sem modificar suas classes.
 
-- Garante que uma classe tenha apenas uma instância.
-- Fornece um ponto de acesso global para essa instância.
-- Controla o ciclo de vida do objeto, permitindo a criação apenas quando necessário.
+### Padrão de Projeto:
+- **Decorator**: Anexa responsabilidades adicionais a um objeto dinamicamente. Decoradores oferecem uma alternativa flexível à subclasse para estender funcionalidades.
 
-### Prós:
+### Exercícios:
+1. Implementação do padrão **Decorator** em uma pizzaria, onde diferentes massas e ingredientes são combinados para criar pizzas personalizadas.
+2. Implementação do padrão **Decorator** em uma cafeteria, onde diferentes tipos de cafés recebem complementos (como leite, canela e chocolate) dinamicamente.
 
-- Evita a criação de múltiplas instâncias desnecessárias de uma classe.
-- Facilita o gerenciamento de recursos compartilhados.
+---
 
-### Contras:
+## Laboratório 5 - Fachada e Proxy
 
-- Pode introduzir forte acoplamento, o que dificulta testes e manutenção do código.
-- Exemplo de Singleton (em TypeScript)
+Este laboratório abrangeu dois padrões estruturais: **Fachada** e **Proxy**. Ambos os padrões lidam com a simplificação do acesso a sistemas complexos e o controle de acesso a objetos.
 
-```typescript
-class Singleton {
-    private static instance: Singleton;
+### Padrões de Projeto:
+- **Fachada**: Fornece uma interface simplificada para um subsistema complexo, facilitando o uso do cliente e escondendo os detalhes internos.
+- **Proxy**: Fornece um substituto ou intermediário para outro objeto, controlando o acesso a ele e adicionando funcionalidades extras como controle de acesso ou criação retardada.
 
-    private constructor() { }
+### Exercícios:
+1. Implementação de um sistema de home theater utilizando o padrão **Fachada**, que facilita a interação com vários dispositivos eletrônicos ao assistir um filme.
+2. Implementação de um sistema de carro onde o padrão **Fachada** é utilizado para automatizar as ações necessárias para iniciar e desligar o carro.
+3. **Implementação de uma máquina de lavar roupas utilizando o padrão Proxy**: Neste exercício, foi implementado um proxy para controlar o acesso à máquina de lavar, garantindo que o ciclo de lavagem só seja iniciado se a porta estiver corretamente fechada.
 
-    public static getInstance(): Singleton {
-        if (!Singleton.instance) {
-            Singleton.instance = new Singleton();
-        }
-        return Singleton.instance;
-    }
-}
-```
+---
 
-Nesse exemplo, o construtor da classe Singleton é privado, impedindo que novas instâncias sejam criadas diretamente. O método estático getInstance() garante que apenas uma instância da classe será criada e reutilizada sempre que for necessária.
+Este repositório representa uma parte fundamental da aprendizagem sobre padrões de projeto e oferece exemplos práticos que podem ser aplicados em diversos contextos de desenvolvimento de software.
+
+---
+
