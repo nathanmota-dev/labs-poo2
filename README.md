@@ -62,7 +62,17 @@ Este laboratório abrangeu dois padrões estruturais: **Fachada** e **Proxy**. A
 
 ---
 
-Este repositório representa uma parte fundamental da aprendizagem sobre padrões de projeto e oferece exemplos práticos que podem ser aplicados em diversos contextos de desenvolvimento de software.
+## Laboratório 6 - Observer
+
+Neste laboratório, o foco foi o padrão **Observer**, que permite que objetos sejam notificados automaticamente quando o estado de outro objeto muda. Esse padrão é particularmente útil em cenários onde um objeto precisa atualizar múltiplos outros sem criar uma dependência direta entre eles.
+
+### Padrão de Projeto:
+- **Observer**: Define uma dependência um-para-muitos entre objetos, de modo que, quando um objeto muda de estado, todos os seus dependentes são notificados e atualizados automaticamente.
+
+### Exercícios:
+1. **Central de Estação do Tempo**: Implementação de uma aplicação onde uma Central de Estação do Tempo (CET) notifica os observadores interessados, como a Prefeitura e o Aeroporto, sobre variações de temperatura, umidade e vento. Cada observador reage de acordo com suas necessidades específicas.
+2. **Mercado Financeiro**: Simulação de um sistema onde investidores acompanham variações no preço de ações e definem limites de compra e venda. O corretor de ações (AcaoBroker) realiza operações automaticamente quando os limites de preço são atingidos, usando o padrão Observer para notificar os investidores.
 
 ---
 
+Este repositório representa uma parte fundamental da aprendizagem sobre padrões de projeto e oferece exemplos práticos que podem ser aplicados em diversos contextos de desenvolvimento de software.
