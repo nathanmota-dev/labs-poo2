@@ -75,4 +75,19 @@ Neste laboratório, o foco foi o padrão **Observer**, que permite que objetos s
 
 ---
 
+## Laboratório 7 - Template Method
+
+Neste laboratório, o padrão **Template Method** foi abordado. Esse padrão define o esqueleto de um algoritmo em uma operação, permitindo que subclasses redefinam certas etapas do algoritmo sem alterar sua estrutura geral.
+
+### Exercícios:
+1. **Loja de pedidos**: Sistema de Processamento de Pedidos - Este exercício consistiu em construir um template para manipulação de pedidos em uma loja, com variações nos métodos de pagamento e formas de entrega. As possibilidades de pedidos incluíram:
+- Pedidos feitos **online**
+- Pedidos feitos **na loja**
+- Pagamentos realizados via **criptomoedas**
+
+O sistema foi projetado para processar pedidos considerando a quantidade de itens, o valor de cada item e a forma de pagamento. 
+Os passos principais do processamento incluíram o processamento do pagamento onde o sistema verificava e processava o pagamento de acordo com a forma escolhida e com base nisso era feita a decisão de entrega onde o sistema determinava se o pedido exigia entrega (no caso de pedidos online) ou retirada (no caso de pedidos na loja).
+
+---
+
 Este repositório representa uma parte fundamental da aprendizagem sobre padrões de projeto e oferece exemplos práticos que podem ser aplicados em diversos contextos de desenvolvimento de software.
